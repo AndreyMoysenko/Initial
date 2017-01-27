@@ -1,0 +1,48 @@
+---
+title: "Test markdown output"
+author: "Andrey Moysenko"
+date: 'January 1st 2017 '
+output: html_document
+---
+# BASIC SYNTAX  
+*Italics*  
+**Bold text**  
+## heading 2  
+### heading 3  
+* first in the list  
+* second in the list  
+1. first in the list  
+2. second in the list  
+[Link text](http://URL.link)  
+
+
+
+```{r code1, echo=T}
+x <- rnorm(100)
+y <- x+rnorm(100, sd=0.5)
+```
+Random X is `r x[1]` and corresponding Y is `r y[1]`  
+
+##Perfect plot:
+
+```{r scatterplot, fig.height=4, echo=F}
+par(mar = c(5,4,1,1),las = 1)
+plot(x,y,main="My Simulated Data")
+```
+
+## Building a table
+```{r fitmodel, cache=TRUE}
+data("airquality")
+fit <- lm(Ozone~Wind+Temp+Solar.R, data=airquality)
+```
+
+Table of coefficients:
+```{r showtable, results="asis", echo=F}
+library(xtable)
+xt <- xtable(summary(fit))
+print(xt, type="html")
+```
+
+
+
+

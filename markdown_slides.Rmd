@@ -1,0 +1,45 @@
+---
+title: "My Fancy Presentation"
+author: "Andrey Moysenko"
+date: 'January 27th 2017'
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+##Slide with  styles  
+###A top level subheading  
+####A second level subheading  
+Plain text  
+*Italicized text*  
+**Bold text**  
+`for (i %in% 1:10)`  
+  
+- Bullet one  
+- Bullet two  
+  
+1. Item a  
+2. Item b    
+
+***
+A slide without a title 
+
+To publish
+
+##R code slide 
+Comment = 1st char in output line  
+Echo = show code  
+Eval = to evaluate the code  
+```{r, comment="", echo=T, eval=T}
+head(mtcars)
+```
+
+##Plot slide  
+fig.align = placement  
+fig cap = bottom title  
+```{r, echo=F, fig.align='center',fig.cap='My AWESOME figure'}
+plot(mtcars$wt, mtcars$mpg, xlab="Weight", ylab = "MPG")
+```
+
